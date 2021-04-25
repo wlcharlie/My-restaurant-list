@@ -69,6 +69,7 @@
 * [Express](https://expressjs.com/zh-tw/)
 * [Express-Handlebars](https://www.npmjs.com/package/express-handlebars)
 * [Fontawesome](https://fontawesome.com/)
+* [nodemon](https://www.npmjs.com/package/nodemon)
 
 更多... If you need to know
 * Gitbash, Fork, VSC.
@@ -101,11 +102,16 @@
    ```
 3. 執行
    ```sh
-   npm run start
+   npm run dev
    ```
-4. 輸入網址：http://localhost:3000(http://localhost:3000)
+4. 前往
+    當你看到
+    ```sh
+    IS WORKING! Head to http://localhost:3000
+    ```
+    輸入網址：http://localhost:3000(http://localhost:3000) 就可以看到囉!
 5. 結束
-    * 在Git Bash 上按下Crtl + C
+    * 在終端機 上按下Crtl + C
 
 <!-- CONTRIBUTING -->
 ## 最後的最後 Contributing
@@ -116,6 +122,7 @@
 <!-- CONTACT -->
 ## Contact
 
-Charlie [E-mail](mailto: wl00606352@gmail.com)
+Charlie 
+E-mail: wl00606352@gmail.com
 
 <!-- Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name) -->

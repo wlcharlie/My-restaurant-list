@@ -22,5 +22,5 @@ app.get('/search', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`listening on http://localhost:${port}`)
+  console.log(`IS WORKING! Head to http://localhost:${3000}`)
 })
