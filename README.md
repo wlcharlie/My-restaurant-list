@@ -89,7 +89,7 @@
 
 1. 將專案複製到你的電腦上 Clone the repo
    ```sh
-   git clone 
+   git clone https://github.com/wlcharlie/My-restaurant-list.git
    ```
 2. 用npm安裝套件 Install NPM packages
    ```sh
