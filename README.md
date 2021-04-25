@@ -94,7 +94,7 @@
 2. 進入到資料夾
     ```sh
     cd My-restaurant-list
-    ```sh
+    ```
 2. 用npm安裝套件 Install NPM packages
    ```sh
    npm install
