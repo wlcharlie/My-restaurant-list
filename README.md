@@ -50,8 +50,8 @@
 <!-- ABOUT THE PROJECT -->
 ## 關於 About The Project
 
-[![My Restaurant List][product-screenshot]](https://i.imgur.com/EFusiKO.png)
-[![My Restaurant List][product-screenshot]](https://i.imgur.com/on7FFSq.png)
+<img src="https://i.imgur.com/EFusiKO.png">
+<img src="https://i.imgur.com/on7FFSq.png">
 
 自己的美食自己收藏，一個專屬於自己的餐廳清單
 
