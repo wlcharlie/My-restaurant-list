@@ -59,7 +59,7 @@
 
 * 一覽無遺的看到全部餐廳
 * 搜尋 名字/類別 快速找到餐廳
-* 點進去可以看到更詳細的店家資訊
+* 點進去可以看到更詳細的店家資訊(電話/地址...等等)
 
 
 ### 製作材料 Made With
@@ -105,11 +105,11 @@
    npm run dev
    ```
 4. 前往
-    當你看到
+  當你看到
     ```sh
     IS WORKING! Head to http://localhost:3000
     ```
-    輸入網址：http://localhost:3000(http://localhost:3000) 就可以看到囉!
+    輸入網址：http://localhost:3000 就可以看到囉!
 5. 結束
     * 在終端機 上按下Crtl + C
 
