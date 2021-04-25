@@ -91,6 +91,10 @@
    ```sh
    git clone https://github.com/wlcharlie/My-restaurant-list.git
    ```
+2. 進入到資料夾
+    ```sh
+    cd My-restaurant-list
+    ```sh
 2. 用npm安裝套件 Install NPM packages
    ```sh
    npm install
@@ -99,6 +103,9 @@
    ```sh
    npm run start
    ```
+4. 輸入網址：http://localhost:3000(http://localhost:3000)
+5. 結束
+    * 在Git Bash 上按下Crtl + C
 
 <!-- CONTRIBUTING -->
 ## 最後的最後 Contributing
