@@ -1,11 +1,12 @@
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
 <div class="container">
-  <div class="row">
+  <div class="container text-light">
 
-    <div class="d-flex justify-content-around align-items-center mx-auto text-light">
-      <div class="border border-white h-75 "></div>
-      <div class="px-5 ml-3">
+    <div class="row align-items-center">
 
+      <div class="col-sm d-flex flex-column justify-content-center align-items-start mx-auto mb-2 font-weight-bolder"
+        style="min-width: 300px;">
+        <h3 class="mb-2">{{restaurant.name}} <span class="font-weight-normal">({{restaurant.name_en}})</span></h3>
         <p class="mb-1">
           <span class="text-secondary">
             <i class="fas fa-utensils pr-2"></i>
@@ -33,15 +34,17 @@
           {{restaurant.phone}}
         </p>
 
-        <p class="mt-5 mb-5 w-100">
-          {{restaurant.description}}
+        <p class="border-top border-light my-3 py-3 w-100">
+          <i>{{restaurant.description}}</i>
         </p>
       </div>
-      <div class="border border-white h-25 mr-5"></div>
-      <div>
-        <img class="rounded mx-auto d-block w-150" src="{{restaurant.image}}" alt="{{restaurant.name}}"
-          style="max-width: 600px;">
+
+      <div class="col-sm d-flex flex-column justify-content-center mb-5 mx-auto">
+        <img class="img-fluid rounded d-block" src="{{restaurant.image}}" alt="{{restaurant.name}}"
+          style="min-width: 300px;">
       </div>
+
     </div>
+
   </div>
 </div>
