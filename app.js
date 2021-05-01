@@ -55,6 +55,8 @@ app.get('/search', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// 嘗試用已知方法判斷有無重複id(自定義的id，非db的_id)
+// 為避免非同步下的迴圈死路，將資料拉出來判定
 app.get('/create/new', (req, res) => {
   res.render('new')
 })
@@ -91,7 +93,6 @@ app.post('/create', (req, res) => {
       })
         .then(() => res.redirect('/'))
         .catch(error => console.log(error))
-
     }
   }
 })
