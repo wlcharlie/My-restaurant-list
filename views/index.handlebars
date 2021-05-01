@@ -16,12 +16,19 @@
   </div>
 </div>
 
+<div class="container">
+  <a href="/create/new">
+    <button type="button" class="btn btn-danger">新增餐廳</button>
+  </a>
+</div>
+
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
         {{#each restaurants}}
+
         <a href="/restaurants/{{this.id}}" class="text-secondary">
           <div class="card bg-light mb-3">
             <img class="card-img-top shadow-sm" src="{{this.image}}" alt="{{this.name}}">
@@ -43,8 +50,6 @@
                   {{this.location.[3]}}{{this.location.[4]}}{{this.location.[5]}}</span>
                 <span class="badge badge-pill badge-info"><i class="fas fa-mobile-alt pr-2"></i> {{this.phone}}</span>
               </div>
-
-
             </div>
           </div>
         </a>
