@@ -1,7 +1,8 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
-const restaurantList = require('./restaurant.json').results
+const Restaurant = require('./models/restaurant')
+// const restaurantList = require('./restaurant.json').results
 
 const app = express()
 const port = 3000
@@ -25,16 +26,32 @@ app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.render('index', { restaurant: restaurantList })
+  Restaurant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
 })
 
 app.get('/restaurants/:id', (req, res) => {
-  res.render('show', { restaurant: restaurantList.find(click => click.id.toString() === req.params.id) })
+  const id = Number(req.params.id)
+  Restaurant.find({ id }) //小筆記：回傳的是array
+    .lean()
+    .then(findRestaurant => {
+      let theRestaurant = {}
+      theRestaurant = findRestaurant[0]
+      res.render('show', { theRestaurant })
+    })
+    .catch(error => console.log(error))
 })
 
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword
-  res.render('index', { restaurant: restaurantList.filter(info => info.name.toLowerCase().includes(keyword.toLowerCase()) || info.category.includes(keyword)), keyword: keyword })
+  Restaurant.find({})
+    .lean()
+    .then(restaurants => res.render('index', { restaurants: restaurants.filter(info => info.name.toLowerCase().includes(keyword.toLowerCase()) || info.name_en.toLowerCase().includes(keyword.toLowerCase()) || info.category.includes(keyword)), keyword: keyword }))
+    .catch(error => console.log(error))
+
+  // res.render('index', { restaurant: restaurantList.filter(info => info.name.toLowerCase().includes(keyword.toLowerCase()) || info.category.includes(keyword)), keyword: keyword })
 })
 
 app.listen(port, () => {
