@@ -55,6 +55,7 @@ app.get('/search', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// CREATE
 // 嘗試用已知方法判斷有無重複id(自定義的id，非db的_id)
 // 為避免非同步下的迴圈死路，將資料拉出來判定
 app.get('/create/new', (req, res) => {
@@ -97,16 +98,17 @@ app.post('/create', (req, res) => {
   }
 })
 
-// C of CRUD 
-// app.get 進入到新增頁面
-// app.post 提交後新增至資料庫，重新導向首頁
 // U of CRUD
 // app.get 進入到編輯頁面，與新增頁面類似
 // app.post 提交後更新資料庫
-// D of CRUD
-// app.post 刪除後更新資料，重新導向至首頁
 
-
+// DELETE
+// 筆記：原本直接接remove但跳出不推薦，可改使用deleteOne/deleteMany
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = Number(req.params.id)
+  return Restaurant.deleteOne({ id })
+    .then(() => res.redirect('/'))
+})
 
 
 

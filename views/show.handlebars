@@ -37,6 +37,43 @@
         <p class="border-top border-light my-3 py-3 w-100">
           <i>{{theRestaurant.description}}</i>
         </p>
+
+        <div class="align-self-end">
+          <div class="dropleft">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown">
+              功能選單
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">編輯</a>
+              <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#doubleCheck">
+                移除
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Double Check Modal -->
+      <div class="modal fade text-dark" id="doubleCheck" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="doubleCheckLabel">刪除確認</h5>
+              <button type="button" class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              您確定真的要刪除嗎?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">不刪</button>
+              <form action="/restaurants/{{theRestaurant.id}}/delete" method="POST"><button type="submit"
+                  class="btn btn-danger">確認刪除</button></form>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="col-sm d-flex flex-column justify-content-center mb-5 mx-auto">
