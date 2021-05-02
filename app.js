@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const Restaurant = require('./models/restaurant')
 
-
 const app = express()
 const port = 3000
 
@@ -35,9 +34,10 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
+//小筆記：回傳的是array
 app.get('/restaurants/:id', (req, res) => {
   const id = Number(req.params.id)
-  Restaurant.find({ id }) //小筆記：回傳的是array
+  Restaurant.find({ id })
     .lean()
     .then(findRestaurant => {
       let theRestaurant = {}
@@ -66,17 +66,17 @@ app.post('/create', (req, res) => {
   const info = req.body
 
   let id = Math.floor(Math.random() * 100000 + 1)
-  let check_id = []
+  const check_ID = []
   let checking = false
 
   Restaurant.find({})
     .lean()
-    .then(restaurants => restaurants.forEach(a => check_id.push(a)))
+    .then(restaurants => restaurants.forEach(a => check_ID.push(a)))
     .then(checking = true)
     .catch(error => console.log(error))
 
   while (checking) {
-    if (check_id.some(ele => ele === id)) {
+    if (check_ID.some(ele => ele === id)) {
       id = Math.floor(Math.random() * 100000 + 1)
     } else {
       checking = false
@@ -90,7 +90,7 @@ app.post('/create', (req, res) => {
         phone: info.phone,
         google_map: info.google_map,
         rating: info.rating,
-        description: info.description,
+        description: info.description
       })
         .then(() => res.redirect('/'))
         .catch(error => console.log(error))
@@ -116,7 +116,6 @@ app.get('/restaurants/:id/edit', (req, res) => {
 app.post('/save/:id', (req, res) => {
   const id = Number(req.params.id)
   const info = req.body
-  console.log(info)
   Restaurant.findOneAndUpdate({ id }, {
     id,
     name: info.name,
@@ -127,9 +126,9 @@ app.post('/save/:id', (req, res) => {
     phone: info.phone,
     google_map: info.google_map,
     rating: info.rating,
-    description: info.description,
+    description: info.description
   })
-    .then(() => res.redirect('/'))
+    .then(() => res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))
 })
 
@@ -140,7 +139,6 @@ app.post('/restaurants/:id/delete', (req, res) => {
   return Restaurant.deleteOne({ id })
     .then(() => res.redirect('/'))
 })
-
 
 app.listen(port, () => {
   console.log(`IS WORKING! Head to http://localhost:${3000}`)

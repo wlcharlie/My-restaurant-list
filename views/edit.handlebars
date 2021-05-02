@@ -1,59 +1,63 @@
 <h1 class="mb-1 restaurant-show-title">編輯餐廳</h1>
-<h2 class="mb-1 restaurant-show-title">{{ theRestaurant.name }}</h2>
-<div class="container text-light">
-  <form action="/save/{{ theRestaurant.id }}" method="POST">
-    <div class="form-group">
-      <label for="name">餐廳店名</label>
-      <input name="name" id="name" type="text" class="form-control" placeholder="好好味" maxlength="20" required
-        value="{{ theRestaurant.name }}">
-    </div>
-    <div class="form-group">
-      <label for="name_en">餐廳英文店名(選填)</label>
-      <input name="name_en" id="name_en" type="text" class="form-control" placeholder="Good Good Eat" maxlength="20"
-        value="{{ theRestaurant.name_en }}">
-    </div>
-    <div class="form-group">
-      <label for="category">類別</label>
-      <select class="form-control" name="category" id="category" required value="{{ theRestaurant.category }}">
-        <option>中東料理</option>
-        <option>義式餐廳</option>
-        <option>日本料理</option>
-        <option>美式</option>
-        <option>咖啡</option>
-        <option>酒吧</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="image">圖片(請貼網址，若無則為預設圖片)</label>
-      <input name="image" id="image" type="url" class="form-control" required value="{{ theRestaurant.image }}">
-    </div>
-    <div class="form-group">
-      <label for="location">地址</label>
-      <input name="location" id="location" type="text" class="form-control" placeholder="台北市中正區..." maxlength="30"
-        required value="{{ theRestaurant.location }}">
-    </div>
-    <div class="form-group">
-      <label for="phone">電話(選填)</label>
-      <input name="phone" id="phone" type="tel" class="form-control" placeholder="0912-3456789 / 04-12345768"
-        maxlength="20" value="{{ theRestaurant.phone }}">
-    </div>
-    <div class="form-group">
-      <label for="google_map">Google 地圖(選填，請貼網址)</label>
-      <input name="google_map" id="google_map" type="url" class="form-control" value="{{ theRestaurant.google_map}}">
-    </div>
-    <div class="form-group">
-      <label for="rating">評分(選填)</label>
-      <input name="rating" id="rating" type="number" class="form-control" maxlength="3" step="0.1" min="0" max="5"
-        placeholder="4.2" value="{{ theRestaurant.rating }}">
-    </div>
-    <div class="form-group">
-      <label for="description">餐廳簡介</label>
-      <input name="description" id="description" type="text" class="form-control" maxlength="150"
-        placeholder="店家特色...店家風格...特色料理..." required value="{{ theRestaurant.description }}">
-    </div>
-    <button type="submit" class="btn btn-danger">儲存</button>
-    <a href="./">
-      <button type="button" class="btn btn-secondary">返回餐廳頁面</button>
-    </a>
-  </form>
+<h2 class="mb-1 restaurant-show-subtitle">{{ theRestaurant.name }}</h2>
+<div class="container bg-light rounded mb-3">
+  <div class="container p-4">
+    <form action="/save/{{ theRestaurant.id }}" method="POST">
+      <div class="form-group">
+        <label for="name">餐廳店名</label>
+        <input name="name" id="name" type="text" class="form-control" placeholder="好好味" maxlength="20" required
+          value="{{ theRestaurant.name }}">
+      </div>
+      <div class="form-group">
+        <label for="name_en">餐廳英文店名(選填)</label>
+        <input name="name_en" id="name_en" type="text" class="form-control" placeholder="Good Good Eat" maxlength="20"
+          value="{{ theRestaurant.name_en }}">
+      </div>
+      <div class="form-group">
+        <label for="category">類別</label>
+        <select class="form-control" name="category" id="category" required value="{{ theRestaurant.category }}">
+          <option>中東料理</option>
+          <option>義式餐廳</option>
+          <option>日本料理</option>
+          <option>美式</option>
+          <option>咖啡</option>
+          <option>酒吧</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="image">圖片(請貼網址，若無則為預設圖片)</label>
+        <input name="image" id="image" type="url" class="form-control" required value="{{ theRestaurant.image }}">
+      </div>
+      <div class="form-group">
+        <label for="location">地址</label>
+        <input name="location" id="location" type="text" class="form-control" placeholder="台北市中正區..." maxlength="30"
+          required value="{{ theRestaurant.location }}">
+      </div>
+      <div class="form-group">
+        <label for="phone">電話(選填)</label>
+        <input name="phone" id="phone" type="tel" class="form-control" placeholder="0912-3456789 / 04-12345768"
+          maxlength="20" value="{{ theRestaurant.phone }}">
+      </div>
+      <div class="form-group">
+        <label for="google_map">Google 地圖(選填，請貼網址)</label>
+        <input name="google_map" id="google_map" type="url" class="form-control" value="{{ theRestaurant.google_map}}">
+      </div>
+      <div class="form-group">
+        <label for="rating">評分(選填)</label>
+        <input name="rating" id="rating" type="number" class="form-control" maxlength="3" step="0.1" min="0" max="5"
+          placeholder="4.2" value="{{ theRestaurant.rating }}">
+      </div>
+      <div class="form-group">
+        <label for="description">餐廳簡介</label>
+        <textarea name="description" id="description" type="text" class="form-control" maxlength="150"
+          placeholder="店家特色...店家風格...特色料理..." required>{{ theRestaurant.description }}</textarea>
+      </div>
+      <div class="mt-5 text-right">
+        <button type="submit" class="btn btn-danger">儲存</button>
+        <a href="./">
+          <button type="button" class="btn btn-secondary">返回餐廳頁面</button>
+        </a>
+      </div>
+    </form>
+  </div>
 </div>
