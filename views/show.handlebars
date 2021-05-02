@@ -39,6 +39,30 @@
         </p>
       </div>
 
+      <div class="col-sm d-flex flex-column justify-content-center mb-5 mx-auto">
+        <img class="img-fluid rounded d-block" src="{{theRestaurant.image}}" alt="{{theRestaurant.name}}"
+          style="min-width: 300px;">
+      </div>
+
+      <div class="container mb-5 d-flex justify-content-end">
+        <div class="dropup">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+            功能選單
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/restaurants/{{theRestaurant.id}}/edit">編輯</a>
+            <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#doubleCheck">
+              移除
+            </a>
+          </div>
+        </div>
+        <div class="mx-2">
+          <a href="../">
+            <button type="button" class="btn btn-secondary">返回</button>
+          </a>
+        </div>
+      </div>
+
       <!-- Double Check Modal -->
       <div class="modal fade text-dark" id="doubleCheck" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -58,30 +82,6 @@
                   class="btn btn-danger">確認刪除</button></form>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="col-sm d-flex flex-column justify-content-center mb-5 mx-auto">
-        <img class="img-fluid rounded d-block" src="{{theRestaurant.image}}" alt="{{theRestaurant.name}}"
-          style="min-width: 300px;">
-      </div>
-      <div class="container mb-5 d-flex justify-content-end">
-
-        <div class="dropup">
-          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-            功能選單
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="/restaurants/{{theRestaurant.id}}/edit">編輯</a>
-            <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#doubleCheck">
-              移除
-            </a>
-          </div>
-        </div>
-        <div class="mx-2">
-          <a href="../">
-            <button type="button" class="btn btn-secondary">返回</button>
-          </a>
         </div>
       </div>
     </div>
