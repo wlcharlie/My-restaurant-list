@@ -9,7 +9,7 @@ const app = express()
 const port = 3000
 
 mongoose.connect('mongodb://localhost/restaurant-list', {
-  useNewUrlParser: true, useUnifiedTopology: true
+  useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false
 })
 
 const db = mongoose.connection
@@ -101,6 +101,37 @@ app.post('/create', (req, res) => {
 // U of CRUD
 // app.get 進入到編輯頁面，與新增頁面類似
 // app.post 提交後更新資料庫
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = Number(req.params.id)
+  Restaurant.find({ id })
+    .lean()
+    .then(findRestaurant => {
+      let theRestaurant = {}
+      theRestaurant = findRestaurant[0]
+      res.render('edit', { theRestaurant })
+    })
+    .catch(error => console.log(error))
+})
+
+app.post('/save/:id', (req, res) => {
+  const id = Number(req.params.id)
+  const info = req.body
+  console.log(info)
+  Restaurant.findOneAndUpdate({ id }, {
+    id,
+    name: info.name,
+    name_en: info.name_en,
+    category: info.category,
+    image: info.image,
+    location: info.location,
+    phone: info.phone,
+    google_map: info.google_map,
+    rating: info.rating,
+    description: info.description,
+  })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
 
 // DELETE
 // 筆記：原本直接接remove但跳出不推薦，可改使用deleteOne/deleteMany
@@ -109,7 +140,6 @@ app.post('/restaurants/:id/delete', (req, res) => {
   return Restaurant.deleteOne({ id })
     .then(() => res.redirect('/'))
 })
-
 
 
 app.listen(port, () => {
