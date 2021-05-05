@@ -56,10 +56,12 @@
           </a>
           <div class="card-footer">
             <div class="d-flex justify-content-between">
-              <a href="/restaurants/{{ this.id }}/edit"><i class="fas fa-edit"></i></a>
-              <a class="text-danger" href="#" data-toggle="modal" data-target="#doubleCheck_DEL{{ this.id }}">
+              <form action="/restaurants/{{ this.id }}?_method=PUT" method="POST">
+                <button type="submit" class="btn btn-link"><i class="fas fa-edit"></i></button>
+              </form>
+              <button class="btn text-danger" href="#" data-toggle="modal" data-target="#doubleCheck_DEL{{ this.id }}">
                 <i class="fas fa-trash-alt text-danger"></i>
-              </a>
+              </button>
 
               <!-- Double Check Modal -->
               <div class="modal fade text-dark" id="doubleCheck_DEL{{ this.id }}" tabindex="-1" role="dialog">
@@ -76,8 +78,9 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">不刪</button>
-                      <form action="/restaurants/{{ this.id }}/delete" method="POST"><button type="submit"
-                          class="btn btn-danger">確認刪除</button></form>
+                      <form action="/restaurants/{{ this.id }}?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-danger">確認刪除</button>
+                      </form>
                     </div>
                   </div>
                 </div>

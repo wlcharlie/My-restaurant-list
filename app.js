@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const Restaurant = require('./models/restaurant')
+const methodOverride = require('method-override')
 
 const app = express()
 const port = 3000
@@ -25,6 +26,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 // R of CRUD
 app.get('/', (req, res) => {
@@ -101,7 +103,8 @@ app.post('/create', (req, res) => {
 // U of CRUD
 // app.get 進入到編輯頁面，與新增頁面類似
 // app.post 提交後更新資料庫
-app.get('/restaurants/:id/edit', (req, res) => {
+// app.get >> app.put for RESTful
+app.put('/restaurants/:id', (req, res) => {
   const id = Number(req.params.id)
   Restaurant.find({ id })
     .lean()
@@ -134,7 +137,8 @@ app.post('/save/:id', (req, res) => {
 
 // DELETE
 // 筆記：原本直接接remove但跳出不推薦，可改使用deleteOne/deleteMany
-app.post('/restaurants/:id/delete', (req, res) => {
+// app.post >> app.delete for RESTful
+app.delete('/restaurants/:id', (req, res) => {
   const id = Number(req.params.id)
   return Restaurant.deleteOne({ id })
     .then(() => res.redirect('/'))
