@@ -1,62 +1,113 @@
 <h1 class="mb-1 restaurant-show-title">新增餐廳</h1>
-<div class="container bg-light rounded mb-3">
-  <div class="container p-4">
+<div class="container">
 
-    <form action="/create" method="POST">
-      <div class="form-group">
-        <label for="name">餐廳店名</label>
-        <input name="name" id="name" type="text" class="form-control" placeholder="好好味" maxlength="20" required>
+  <form action="/create" method="POST">
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div class="container bg-light rounded p-3">
+            <div class="border-bottom mb-3">
+              <h3><b>必填資料</b></h3>
+            </div>
+            <div class="form-group">
+              <label for="name">餐廳店名</label>
+              <input name="name" id="name" type="text" class="form-control" placeholder="好好味" maxlength="20" required>
+            </div>
+            <div class="form-group">
+              <label for="category">類別</label>
+              <select class="form-control" name="category" id="category" required>
+                <option>中東料理</option>
+                <option>義式餐廳</option>
+                <option>日本料理</option>
+                <option>美式</option>
+                <option>咖啡</option>
+                <option>酒吧</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="location">地址</label>
+              <input name="location" id="location" type="text" class="form-control" placeholder="台北市中正區..."
+                maxlength="30" required>
+            </div>
+            <div class="form-group">
+              <label for="description">餐廳簡介</label>
+              <textarea name="description" id="description" type="text" class="form-control" maxlength="150"
+                placeholder="店家特色...店家風格...特色料理..." required rows="6"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="container bg-light rounded p-3">
+            <div class="border-bottom mb-3">
+              <h3><b>其他資料</b></h3>
+              <p>此區為選填，填寫完能讓餐廳更豐富！</p>
+            </div>
+
+
+            <div class="form-group">
+              <label for="name_en">餐廳英文店名(選填)</label>
+              <input name="name_en" id="name_en" type="text" class="form-control" placeholder="Good Good Eat"
+                maxlength="20">
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="phone">電話(選填)</label>
+              <input name="phone" id="phone" type="tel" class="form-control" placeholder="0912-3456789 / 04-12345768"
+                maxlength="20">
+            </div>
+
+            <div class="form-group">
+              <label for="rating">評分(選填)</label>
+              <input name="rating" id="rating" type="number" class="form-control" maxlength="3" step="0.1" min="0"
+                max="5" placeholder="4.2">
+            </div>
+
+            <div class="form-group">
+              <label for="google_map">Google 地圖(請貼網址)</label>
+              <input name="google_map" id="google_map" type="url" class="form-control" placeholder="若無，會顯示預設搜尋餐廳名">
+            </div>
+
+            <div class="form-group">
+              <label for="image">圖片(請貼網址)</label>
+              <input name="image" id="image" type="url" class="form-control" placeholder="若無圖片，會顯示隨機線上圖庫 from Unsplash">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <h4 class="text-light border-bottom pb-2 mb-2">預覽畫面</h4>
+          <div class="card bg-light">
+            <img class="card-img-top shadow-sm" src="" alt="">
+            <div class="card-body p-3">
+              <h6 class="card-title mb-1"><strong></strong></h6>
+              <h6 class="card-title mb-1"><i></i></h6>
+
+              <div class="restaurant-category mb-1">
+                <i class="fas fa-utensils pr-2"></i>
+              </div>
+
+              <span class="badge badge-pill badge-danger font-weight-normal">
+                <i class="fas fa-star fa-xs"></i>
+              </span>
+
+              <div>
+                <span class="badge badge-pill badge-info"><i class="fas fa-map-marker-alt pr-2"></i></span>
+                <span class="badge badge-pill badge-info"><i class="fas fa-mobile-alt pr-2"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="name_en">餐廳英文店名(選填)</label>
-        <input name="name_en" id="name_en" type="text" class="form-control" placeholder="Good Good Eat" maxlength="20">
-      </div>
-      <div class="form-group">
-        <label for="category">類別</label>
-        <select class="form-control" name="category" id="category" required>
-          <option>中東料理</option>
-          <option>義式餐廳</option>
-          <option>日本料理</option>
-          <option>美式</option>
-          <option>咖啡</option>
-          <option>酒吧</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="image">圖片(請貼網址，若無則為預設圖片)</label>
-        <input name="image" id="image" type="url" class="form-control" required
-          value="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80">
-      </div>
-      <div class="form-group">
-        <label for="location">地址</label>
-        <input name="location" id="location" type="text" class="form-control" placeholder="台北市中正區..." maxlength="30"
-          required>
-      </div>
-      <div class="form-group">
-        <label for="phone">電話(選填)</label>
-        <input name="phone" id="phone" type="tel" class="form-control" placeholder="0912-3456789 / 04-12345768"
-          maxlength="20">
-      </div>
-      <div class="form-group">
-        <label for="google_map">Google 地圖(選填，請貼網址)</label>
-        <input name="google_map" id="google_map" type="url" class="form-control" value="https://www.google.com.tw/maps">
-      </div>
-      <div class="form-group">
-        <label for="rating">評分(選填)</label>
-        <input name="rating" id="rating" type="number" class="form-control" maxlength="3" step="0.1" min="0" max="5"
-          placeholder="4.2">
-      </div>
-      <div class="form-group">
-        <label for="description">餐廳簡介</label>
-        <textarea name="description" id="description" type="text" class="form-control" maxlength="150"
-          placeholder="店家特色...店家風格...特色料理..." required></textarea>
-      </div>
-      <div class="mt-5 text-right">
-        <a href="/">
-          <button type="button" class="btn btn-secondary">返回首頁</button>
-        </a>
-        <button type="submit" class="btn btn-danger">新增</button>
-      </div>
-    </form>
-  </div>
+    </div>
+    <div class="m-4 text-center">
+      <button type="submit" class="btn btn-danger">儲存</button>
+      <a href="/">
+        <button type="button" class="btn btn-secondary">返回餐廳首頁</button>
+      </a>
+    </div>
+  </form>
+
 </div>

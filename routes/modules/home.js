@@ -16,6 +16,7 @@ router.get('/search', (req, res) => {
     .lean()
     .then(restaurants => res.render('index', { restaurants: restaurants.filter(info => info.name.toLowerCase().includes(keyword.toLowerCase()) || info.name_en.toLowerCase().includes(keyword.toLowerCase()) || info.category.includes(keyword)), keyword: keyword }))
     .catch(error => console.log(error))
+
 })
 
 module.exports = router

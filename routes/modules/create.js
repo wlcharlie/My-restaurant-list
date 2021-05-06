@@ -26,6 +26,12 @@ router.post('/', (req, res) => {
       id = Math.floor(Math.random() * 100000 + 1)
     } else {
       checking = false
+      if (!info.image) {
+        info.image = "https://images.unsplash.com/photo-1619526882897-94e6516aff74"
+      }
+      if (!info.google_map) {
+        info.google_map = `https://www.google.com.tw/maps/search/${info.name}/`
+      }
       Restaurant.create({
         id,
         name: info.name,

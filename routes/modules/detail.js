@@ -7,11 +7,13 @@ const Restaurant = require('../../models/restaurant')
 
 router.get('/:id', (req, res) => {
   const id = Number(req.params.id)
+
   Restaurant.find({ id })
     .lean()
     .then(findRestaurant => {
       let theRestaurant = {}
       theRestaurant = findRestaurant[0]
+      console.log(theRestaurant)
       res.render('show', { theRestaurant })
     })
     .catch(error => console.log(error))
@@ -24,6 +26,7 @@ router.put('/:id', (req, res) => {
     .then(findRestaurant => {
       let theRestaurant = {}
       theRestaurant = findRestaurant[0]
+      console.log(theRestaurant.phone)
       res.render('edit', { theRestaurant })
     })
     .catch(error => console.log(error))
