@@ -26,7 +26,6 @@ router.put('/:id', (req, res) => {
     .then(findRestaurant => {
       let theRestaurant = {}
       theRestaurant = findRestaurant[0]
-      console.log(theRestaurant.phone)
       res.render('edit', { theRestaurant })
     })
     .catch(error => console.log(error))

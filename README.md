@@ -48,6 +48,7 @@
 
 * 檢視所有餐廳資訊
 * 搜尋關鍵字(名字/類別)
+* 排序餐廳
 * 點入瀏覽更多餐廳詳細資訊(地址/介紹)
 * 新增/編輯/刪除餐廳資料
 * 預覽新增/編輯時的呈現(尚未完全)
@@ -72,6 +73,7 @@
 * [nodemon (2.0.7)](https://www.npmjs.com/package/nodemon)
 * [body-parser (1.19.0)](https://i.imgur.com/IQ9lI1F.png)
 * [Method-override (3.0.0)](https://www.npmjs.com/package/method-override)
+* [handlebars-helpers(0.10.0)](https://www.npmjs.com/package/handlebars-helpers)
 * 基本必備：VSC, Gitbash, Fork
 
 #### 介面/版型相關
@@ -127,12 +129,13 @@
 7. 結束
     * 在終端機上按下Crtl + C
 
-### 更新紀錄
+## 更新紀錄
 
 5/6
 * 專案架構變更：RESTful應用 / 簡化及重新編排程式碼(mongoose + router)
 * 新增/編輯頁面重新排版，預先放入了預覽畫面
 * 搜尋欄再也不能空白搜尋，而新增瀏覽全部按鈕
+* 新增排序選項
 
 5/2
 * 關鍵字現在可以搜尋英文店名
