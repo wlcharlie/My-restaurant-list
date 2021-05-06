@@ -12,22 +12,15 @@ router.get('/', (req, res) => {
 
 router.get('/search', (req, res) => {
   const keyword = req.query.keyword
-  Restaurant.find({})
-    .lean()
-    .then(restaurants => res.render('index', { restaurants: restaurants.filter(info => info.name.toLowerCase().includes(keyword.toLowerCase()) || info.name_en.toLowerCase().includes(keyword.toLowerCase()) || info.category.includes(keyword)), keyword: keyword }))
-    .catch(error => console.log(error))
-})
-
-router.get('/sorting', (req, res) => {
   const sorting = req.query.sorting
   const target = sorting.split(',')[0]
   const sort = sorting.split(',')[1]
 
-  Restaurant.find()
+  Restaurant.find({})
     .lean()
     .sort([[target, sort]])
-    .then(restaurants => res.render('index', { restaurants, sorting }))
-    .catch(error => console.error(error))
+    .then(restaurants => res.render('index', { sorting, restaurants: restaurants.filter(info => info.name.toLowerCase().includes(keyword.toLowerCase()) || info.name_en.toLowerCase().includes(keyword.toLowerCase()) || info.category.includes(keyword)), keyword: keyword }))
+    .catch(error => console.log(error))
 })
 
 module.exports = router

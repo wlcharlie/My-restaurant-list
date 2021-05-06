@@ -13,7 +13,8 @@
                 <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
               </div>
             </div>
-          </form>
+            {{!--
+          </form> --}}
         </div>
         <div class="mt-3">
           <a href="/">
@@ -27,9 +28,9 @@
         </div>
       </div>
       <div class="col-4">
-        <form action="/sorting" method="GET">
+        {{!-- <form action="/sorting" method="GET"> --}}
           <select class="form-control" name="sorting" id="sorting" onchange="submit()">
-            <option value="">排列方式</option>
+            <option value="_id,asc">預設排列</option>
             <option value="name,asc" {{#is 'name,asc' sorting}}selected {{/is}}>排序：A > Z</option>
             <option value="name,desc" {{#is 'name,desc' sorting}}selected {{/is}}>排序：Z > A</option>
             <option value="category,asc" {{#is 'category,asc' sorting}}selected {{/is}}>類別</option>
