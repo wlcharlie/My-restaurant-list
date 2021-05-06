@@ -13,7 +13,7 @@
     <br />
     <a href="https://github.com/wlcharlie/My-restaurant-list">前往專案</a>
     <br />
-    更新日期：5/2
+    更新日期：5/6
   </p>
 </p>
 
@@ -21,20 +21,21 @@
   <summary><h2 style="display: inline-block">目錄</h2></summary>
   <ol>
     <li>
-      <a href="## 關於專案">關於專案</a>
+      <a href="##關於專案">關於專案</a>
       <ul>
-        <li><a href="## 使用工具">使用工具</a></li>
+        <li><a href="##使用工具">使用工具</a></li>
       </ul>
     </li>
     <li>
-      <a href="## 開始使用">開始使用</a>
+      <a href="##開始使用">開始使用</a>
       <ul>
-        <li><a href="### 準備條件">準備條件</a></li>
-        <li><a href="### 安裝">安裝</a></li>
+        <li><a href="###準備條件">準備條件</a></li>
+        <li><a href="###安裝">安裝</a></li>
       </ul>
     </li>
-    <li><a href="## 其他資訊">其他資訊</a></li>
-    <li><a href="## 關於我">關於我</a></li>
+    <li><a href="##更新紀錄">更新紀錄</a></li>
+    <li><a href="##其他資訊">其他資訊</a></li>
+    <li><a href="##關於我">關於我</a></li>
   </ol>
 </details>
 
@@ -48,7 +49,8 @@
 * 檢視所有餐廳資訊
 * 搜尋關鍵字(名字/類別)
 * 點入瀏覽更多餐廳詳細資訊(地址/介紹)
-* 新增/編輯/刪除功能
+* 新增/編輯/刪除餐廳資料
+* 預覽新增/編輯時的呈現(尚未完全)
 
 
 ### 專案畫面
@@ -62,14 +64,6 @@
 #### 舊版首頁
 <img src="https://i.imgur.com/EFusiKO.png">
 
-### 更新紀錄
-
-5/2
-* 關鍵字現在可以搜尋英文店名
-* NEW! 新增餐廳
-* NEW! 編輯餐廳
-* NEW! 刪除餐廳
-
 ## 使用工具
 
 #### 開發/運行環境
@@ -77,6 +71,7 @@
 * [Express (4.17.1)](https://expressjs.com/zh-tw/)
 * [nodemon (2.0.7)](https://www.npmjs.com/package/nodemon)
 * [body-parser (1.19.0)](https://i.imgur.com/IQ9lI1F.png)
+* [Method-override (3.0.0)](https://www.npmjs.com/package/method-override)
 * 基本必備：VSC, Gitbash, Fork
 
 #### 介面/版型相關
@@ -131,6 +126,18 @@
     於瀏覽器輸入網址：http://localhost:3000
 7. 結束
     * 在終端機上按下Crtl + C
+
+### 更新紀錄
+
+5/6
+* 專案架構變更：RESTful應用 / 簡化及重新編排程式碼(mongoose + router)
+* 新增/編輯頁面重新排版，預先放入了預覽畫面
+* 搜尋欄再也不能空白搜尋，而新增瀏覽全部按鈕
+
+5/2
+* 關鍵字現在可以搜尋英文店名
+* 餐廳的CRUD功能
+
 
 ## 其他資訊
 * 此README上方的Icon來源 [flaticon](https://www.flaticon.com/) 
