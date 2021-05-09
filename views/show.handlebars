@@ -50,7 +50,7 @@
             功能選單
           </button>
           <div class="dropdown-menu">
-            <form action="/restaurants/{{ theRestaurant.id }}?_method=PUT" method="POST">
+            <form action="/restaurants/{{ theRestaurant.id }}/edit" method="GET">
               <button type="submit" class="dropdown-item btn btn-white">編輯</button>
             </form>
             <button class="dropdown-item btn text-danger" href="#" data-toggle="modal" data-target="#doubleCheck">

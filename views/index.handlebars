@@ -75,7 +75,7 @@
           </a>
           <div class="card-footer">
             <div class="d-flex justify-content-between">
-              <form action="/restaurants/{{ this.id }}?_method=PUT" method="POST">
+              <form action="/restaurants/{{ this.id }}/edit" method="GET">
                 <button type="submit" class="btn btn-link"><i class="fas fa-edit"></i></button>
               </form>
               <button class="btn text-danger" href="#" data-toggle="modal" data-target="#doubleCheck_DEL{{ this.id }}">

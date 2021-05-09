@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
 router.get('/search', (req, res) => {
   const keyword = req.query.keyword
   const sorting = req.query.sorting
-  const target = sorting.split(',')[0]
-  const sort = sorting.split(',')[1]
+  const target = sorting.split(',')[0] || " "
+  const sort = sorting.split(',')[1] || " "
 
   Restaurant.find({})
     .lean()
