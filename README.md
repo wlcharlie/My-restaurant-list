@@ -13,7 +13,7 @@
     <br />
     <a href="https://github.com/wlcharlie/My-restaurant-list">前往專案</a>
     <br />
-    更新日期：5/6
+    更新日期：5/9
   </p>
 </p>
 
@@ -84,6 +84,7 @@
 #### 資料庫相關
 * [mongodb (4.4)](https://docs.mongodb.com/manual/)
 * [mongoose (5.12.7)](https://mongoosejs.com/)
+* [uuid4 (2.0.2)](uuid4()) *DB有提供_id，但就想自己弄一個*
 
 <!-- GETTING STARTED -->
 ## 開始使用
