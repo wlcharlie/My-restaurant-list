@@ -7,7 +7,9 @@ const methodOverride = require('method-override')
 const flash = require('connect-flash')
 
 const routes = require('./routes')
+const usePassport = require('./config/passport')
 require('./config/mongoose')
+
 
 const app = express()
 const helpers = hbsHelpers()
@@ -24,11 +26,12 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-
+usePassport(app)
 app.use(flash())
 app.use((req, res, next) => {
   res.locals.successMsg = req.flash('successMsg')
   res.locals.warningMsg = req.flash('warningMsg')
+  res.locals.error = req.flash('error')
   next()
 })
 

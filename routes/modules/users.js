@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const passport = require('passport')
 
 const User = require('../../models/user')
 
@@ -7,23 +8,11 @@ router.get('/login', (req, res) => {
   res.render('login')
 })
 
-router.post('/login', (req, res) => {
-  const { email, password } = req.body
-  User.findOne({ email })
-    .then(find => {
-      if (!find) {
-        req.flash('warningMsg', '電子信箱未被註冊')
-        return res.render('login')
-      }
-
-      if (password !== find.password) {
-        req.flash('warningMsg', '電子信箱或密碼輸入錯誤')
-        return res.redirect('/users/login')
-      }
-
-      res.redirect('/')
-    })
-})
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/users/login',
+  failureFlash: true
+}))
 
 router.get('/register', (req, res) => {
   res.render('register')
