@@ -32,9 +32,9 @@ module.exports = app => {
   }))
 
   passport.use(new FacebookStrategy({
-    clientID: "331633704999179",
-    clientSecret: "9653e820a005498544789224aff319d9",
-    callbackURL: "http://localhost:3000/auth/facebook/callback",
+    clientID: process.env.FACEBOOK_ID,
+    clientSecret: process.env.FACEBOOK_SECRET,
+    callbackURL: process.env.FACEBOOK_CALLBACK,
     // 要抓取使用者的資料，name似乎已經有了
     profileFields: ['displayName', 'email']
   },
