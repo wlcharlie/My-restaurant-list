@@ -1,6 +1,7 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const FacebookStrategy = require('passport-facebook').Strategy
+const bcrypt = require('bcryptjs')
 
 const User = require('../models/user')
 
@@ -18,12 +19,15 @@ module.exports = app => {
         if (!find) {
           return done(null, false, { message: '電子信箱尚未註冊!' })
         }
-
-        if (find.password !== password) {
-          return done(null, false, { message: '電子信箱或密碼輸入錯誤!' })
-        }
-
-        return done(null, user)
+        // 用bcrypt裡的比對方法(使用者輸入 比對 雜湊密碼)
+        return bcrypt.compare(password, find.password)
+          .then(match => {
+            if (!match) {
+              return done(null, false, { message: '電子信箱或密碼輸入錯誤!' })
+            }
+            return done(null, find)
+          })
+          .catch(err => done(err, false))
       })
   }))
 
@@ -42,13 +46,15 @@ module.exports = app => {
             return done(null, user)
           }
 
-          const testPassword = 123456
-
-          User.create({
-            name,
-            email,
-            password: testPassword
-          })
+          const randomPassword = Math.random().toString(36).slice(-5)
+          return bcrypt
+            .genSalt(8)
+            .then(salt => bcrypt.hash(randomPassword, salt))
+            .then(hash => User.create({
+              name,
+              email,
+              password: hash
+            }))
             .then(user => done(null, user))
             .catch(err => done(err, false))
         })
