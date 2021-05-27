@@ -44,6 +44,8 @@
 
 ### 自己的美食自己收藏，一個專屬於自己的餐廳清單
 
+#### 前往網站 (https://my-restaurant-list.herokuapp.com/users/login)
+
 ### 特色功能
 
 * 檢視所有餐廳資訊
