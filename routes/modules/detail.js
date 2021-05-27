@@ -12,6 +12,7 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+  const userId = req.user._id
   const info = req.body
   let id = parseInt(uuid4(), 24)
 
@@ -32,7 +33,8 @@ router.post('/', (req, res) => {
     phone: info.phone,
     google_map: info.google_map,
     rating: info.rating,
-    description: info.description
+    description: info.description,
+    userId
   })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
@@ -40,8 +42,9 @@ router.post('/', (req, res) => {
 
 // view specific restaurants
 router.get('/:id', (req, res) => {
+  const userId = req.user._id
   const id = Number(req.params.id)
-  Restaurant.findOne({ id })
+  Restaurant.findOne({ id, userId })
     .lean()
     .then(theRestaurant => res.render('show', { theRestaurant }))
     .catch(error => console.log(error))
@@ -58,6 +61,7 @@ router.get('/:id/edit', (req, res) => {
 
 // renew the page from edit
 router.put('/:id', (req, res) => {
+  const userId = req.user._id
   const id = Number(req.params.id)
   const info = req.body
 
@@ -68,7 +72,7 @@ router.put('/:id', (req, res) => {
     info.google_map = `https://www.google.com.tw/maps/search/${info.name}/`
   }
 
-  Restaurant.findOneAndUpdate({ id }, {
+  Restaurant.findOneAndUpdate({ id, userId }, {
     id,
     name: info.name,
     name_en: info.name_en,
@@ -86,8 +90,9 @@ router.put('/:id', (req, res) => {
 
 // delete
 router.delete('/:id', (req, res) => {
+  const userId = req.user._id
   const id = Number(req.params.id)
-  return Restaurant.deleteOne({ id })
+  return Restaurant.deleteOne({ id, userId })
     .then(() => res.redirect('/'))
 })
 
