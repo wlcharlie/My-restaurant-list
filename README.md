@@ -57,8 +57,8 @@
 
 ### 專案畫面
 
-<img scr="https://i.imgur.com/MsWsaVj.png">
-<img scr="https://i.imgur.com/y599GD0.png">
+<img src="https://i.imgur.com/MsWsaVj.png">
+<img src="https://i.imgur.com/y599GD0.png">
 
 
 ## 使用工具
