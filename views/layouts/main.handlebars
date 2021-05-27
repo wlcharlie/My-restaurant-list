@@ -24,9 +24,11 @@
             width="30" height="30" class="d-inline-block align-top img-fluid mx-auto" alt="我的餐廳清單">
           {{#if isAuthenticated}}{{user.name}}{{else}}我{{/if}}的餐廳清單
         </a>
-        <a href="/restaurants/new">
-          <button type="button" class="btn btn-danger">新增餐廳</button>
+        {{#if isAuthenticated}}
+        <a href="/users/logout">
+          <button type="button" class="btn btn-danger">登出</button>
         </a>
+        {{/if}}
       </div>
     </nav>
     <div class="banner"></div>
