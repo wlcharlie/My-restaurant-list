@@ -47,23 +47,19 @@
 ### 特色功能
 
 * 檢視所有餐廳資訊
-* 搜尋關鍵字(名字/類別)
-* 排序餐廳
-* 點入瀏覽更多餐廳詳細資訊(地址/介紹)
+* 搜尋關鍵字
+* 排序
+* 點入瀏覽餐廳詳細資訊(地址/介紹)
 * 新增/編輯/刪除餐廳資料
-* 預覽新增/編輯時的呈現(尚未完全)
-
+* 預覽新增/編輯時的呈現(目前呈現僅載入時)
+* 註冊/登入使用者
+* 透過Facebook登入
 
 ### 專案畫面
 
-#### 5/2 更新首頁
-<img src="https://i.imgur.com/IQ9lI1F.png">
+<img scr="https://i.imgur.com/MsWsaVj.png">
+<img scr="https://i.imgur.com/y599GD0.png">
 
-#### 舊版餐廳詳細資訊
-<img src="https://i.imgur.com/on7FFSq.png">
-
-#### 舊版首頁
-<img src="https://i.imgur.com/EFusiKO.png">
 
 ## 使用工具
 
@@ -74,6 +70,7 @@
 * [body-parser (1.19.0)](https://i.imgur.com/IQ9lI1F.png)
 * [Method-override (3.0.0)](https://www.npmjs.com/package/method-override)
 * [handlebars-helpers(0.10.0)](https://www.npmjs.com/package/handlebars-helpers)
+* [connect-flash (0.1.1)]
 * 基本必備：VSC, Gitbash, Fork
 
 #### 介面/版型相關
@@ -81,10 +78,13 @@
 * [Express-Handlebars (5.3.0)](https://www.npmjs.com/package/express-handlebars)
 * [Fontawesome (kit code 5.15.3)](https://fontawesome.com/)
 
-#### 資料庫相關
+#### 資料庫、資料處裡相關
 * [mongodb (4.4)](https://docs.mongodb.com/manual/)
 * [mongoose (5.12.7)](https://mongoosejs.com/)
 * [uuid4 (2.0.2)](uuid4()) *DB有提供_id，但就想自己弄一個*
+* [bcrypt (2.4.3)]
+* [passport (0.4.1)] via strategy of facebook (3.0.0) & local (1.0.0)
+* [dotenv (10.0.0)]
 
 <!-- GETTING STARTED -->
 ## 開始使用
@@ -98,6 +98,7 @@
 * 網路 *(若無Fontawesome的Icon會無法顯示)*
 * Git Bash
 * nvm & Node.js
+* nodemon
 * mongoDB
 
 ### 安裝
@@ -131,6 +132,12 @@
     * 在終端機上按下Crtl + C
 
 ## 更新紀錄
+
+5/27
+* 現在可以註冊使用者/透過臉書登入
+* 使用者資料透過加密處理
+* 新增使用者Schema，與餐廳Schema一同修改
+* 現在必須登入才能進入介面
 
 5/6
 * 專案架構變更：RESTful應用 / 簡化及重新編排程式碼(mongoose + router)
