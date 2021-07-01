@@ -12,9 +12,9 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+
   const userId = req.user._id
   const info = req.body
-  let id = parseInt(uuid4(), 24)
 
   if (!info.image) {
     info.image = "https://images.unsplash.com/photo-1619526882897-94e6516aff74"
@@ -22,6 +22,12 @@ router.post('/', (req, res) => {
   if (!info.google_map) {
     info.google_map = `https://www.google.com.tw/maps/search/${info.name}/`
   }
+
+  if (info.action === 'Preview') {
+    return res.render('new', { preview: info })
+  }
+
+  let id = parseInt(uuid4(), 24)
 
   Restaurant.create({
     id,
