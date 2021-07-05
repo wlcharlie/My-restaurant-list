@@ -3,6 +3,7 @@
 const express = require('express')
 const router = express.Router()
 const uuid4 = require('uuid4')
+const faker = require('faker')
 
 const Restaurant = require('../../models/restaurant')
 
@@ -17,8 +18,10 @@ router.post('/', (req, res) => {
   const info = req.body
 
   if (!info.image) {
-    info.image = "https://images.unsplash.com/photo-1619526882897-94e6516aff74"
+    info.image = faker.image.food()
+    // info.image = "https://images.unsplash.com/photo-1619526882897-94e6516aff74"
   }
+
   if (!info.google_map) {
     info.google_map = `https://www.google.com.tw/maps/search/${info.name}/`
   }
