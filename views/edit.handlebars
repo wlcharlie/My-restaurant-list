@@ -4,6 +4,11 @@
 
   <form action="/restaurants/{{ theRestaurant.id }}?_method=PUT" method="POST">
     <div class="container">
+      {{#is theRestaurant.action 'Preview'}}
+      <div class="alert alert-danger text-center" role="alert">
+        <h3>預覽中，資料尚未送出</h3>
+      </div>
+      {{/is}}
       <div class="row">
         <div class="col-4">
           <div class="container bg-light rounded p-3">
@@ -111,6 +116,7 @@
     </div>
     <div class="m-4 text-center">
       <button type="submit" class="btn btn-danger">儲存</button>
+      <button type="submit" class="btn btn-primary" value="Preview" name="action">預覽</button>
       <a href="/restaurants/{{ theRestaurant.id }}">
         <button type="button" class="btn btn-secondary">返回餐廳頁面</button>
       </a>

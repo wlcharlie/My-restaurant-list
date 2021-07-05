@@ -13,7 +13,6 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-
   const userId = req.user._id
   const info = req.body
 
@@ -30,7 +29,7 @@ router.post('/', (req, res) => {
     return res.render('new', { preview: info })
   }
 
-  let id = parseInt(uuid4(), 24)
+  const id = parseInt(uuid4(), 24)
 
   Restaurant.create({
     id,
@@ -71,14 +70,21 @@ router.get('/:id/edit', (req, res) => {
 // renew the page from edit
 router.put('/:id', (req, res) => {
   const userId = req.user._id
-  const id = Number(req.params.id)
+
   const info = req.body
+  info.id = Number(req.params.id)
 
   if (!info.image) {
     info.image = "https://images.unsplash.com/photo-1619526882897-94e6516aff74"
   }
   if (!info.google_map) {
     info.google_map = `https://www.google.com.tw/maps/search/${info.name}/`
+  }
+
+  console.log(info)
+
+  if (info.action === 'Preview') {
+    return res.render('edit', { theRestaurant: info })
   }
 
   Restaurant.findOneAndUpdate({ id, userId }, {
