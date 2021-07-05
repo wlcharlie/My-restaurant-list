@@ -117,7 +117,26 @@
           </div>
         </div>
         {{/each}}
+
       </div>
     </div>
   </div>
+  {{#unless restaurant}}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <div class="d-flex justify-content-end">
+          <img src="https://image.flaticon.com/icons/png/512/983/983048.png" alt="" class=""
+            style="width: 200px; height: 200px">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="d-flex flex-column justify-content-center align-items-start h-100">
+          <h1 class="text-light">Oops! </h1>
+          <h5 class="text-light">難道是還沒加入的隱藏版餐廳嘛!</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/unless}}
 </div>
