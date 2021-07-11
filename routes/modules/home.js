@@ -15,13 +15,17 @@ router.get('/search', (req, res) => {
   const userId = req.user._id
   const keyword = req.query.keyword
   const sorting = req.query.sorting
-  const target = sorting.split(',')[0] || " "
-  const sort = sorting.split(',')[1] || " "
+  const target = sorting.split(',')[0] || ' '
+  const sort = sorting.split(',')[1] || ' '
 
-  Restaurant.find({ userId })
+  const options = { $regex: keyword, $options: 'ix' }
+
+  Restaurant.find({ userId, $or: [{ name: options }, { name_en: options }, { category: options }] })
     .lean()
     .sort([[target, sort]])
-    .then(restaurants => res.render('index', { sorting, restaurants: restaurants.filter(info => info.name.toLowerCase().includes(keyword.toLowerCase()) || info.name_en.toLowerCase().includes(keyword.toLowerCase()) || info.category.includes(keyword)), keyword: keyword }))
+    .then(restaurants => {
+      res.render('index', { sorting, restaurants, keyword })
+    })
     .catch(error => console.log(error))
 })
 
