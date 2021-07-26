@@ -13,7 +13,7 @@
     <br />
     <a href="https://github.com/wlcharlie/My-restaurant-list">前往專案</a>
     <br />
-    更新日期：5/9
+    更新日期：7/26
   </p>
 </p>
 
